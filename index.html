@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direx Escape - Official Android Game</title>
+    <meta name="description" content="Download Direx Escape APK for Android. Logic puzzle game by Commander Dishu.">
+    <style>
+        :root {
+            --primary: #00e5ff;
+            --accent: #ff4b2b;
+            --bg-dark: #070b12;
+            --card-bg: rgba(18, 26, 43, 0.85);
+            --border: rgba(0, 229, 255, 0.2);
+            --text-muted: #8fa0bc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(0, 229, 255, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 10% 80%, rgba(255, 75, 43, 0.08) 0%, transparent 40%);
+            padding: 0 16px 40px;
+        }
+
+        /* Navbar */
+        nav {
+            width: 100%;
+            max-width: 900px;
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            margin-bottom: 30px;
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .nav-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            object-fit: cover;
+        }
+
+        /* Hero Box */
+        .hero {
+            max-width: 580px;
+            width: 100%;
+            background: var(--card-bg);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            padding: 36px 24px;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 229, 255, 0.1);
+            margin-bottom: 36px;
+        }
+
+        .hero-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 26px;
+            box-shadow: 0 12px 30px rgba(0, 229, 255, 0.35);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .author {
+            color: var(--primary);
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 12px;
+        }
+
+        .tagline {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+
+        /* Specs Bar */
+        .specs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            background: rgba(10, 16, 26, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 14px 10px;
+            margin-bottom: 28px;
+        }
+        .spec-item span {
+            display: block;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        .spec-item strong {
+            font-size: 0.92rem;
+            color: #e2e8f0;
+        }
+
+        /* Download Button */
+        .btn-main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+            color: #ffffff;
+            font-size: 1.05rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 114, 255, 0.45);
+            transition: all 0.2s ease;
+        }
+        .btn-main:active {
+            transform: scale(0.98);
+        }
+
+        .safe-badge {
+            margin-top: 16px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        /* Gameplay Screenshots Preview */
+        .section-title {
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .gallery {
+            max-width: 650px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .phone-frame {
+            width: 200px;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.7);
+            border: 3px solid rgba(255, 255, 255, 0.12);
+            background: #000;
+        }
+        .phone-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Highlights */
+        .features {
+            max-width: 580px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 40px;
+        }
+        .feature-card {
+            background: rgba(18, 26, 43, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 16px;
+            border-radius: 16px;
+        }
+        .feature-card h3 {
+            font-size: 0.95rem;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+        .feature-card p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        footer {
+            color: #4b5563;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <nav>
+        <div class="nav-brand">
+            <img src="file_0000000060708208a77c2fdd2a4f3292.png" alt="Direx" class="nav-logo">
+            <span>DIREX ESCAPE</span>
+        </div>
+        <span style="font-size: 0.8rem; color: var(--text-muted);">Android</span>
+    </nav>
+
+    <!-- Main Card -->
+    <div class="hero">
+        <img src="file_0000000060708208a77c2fdd2a4f3292.png" alt="Direx Escape Logo" class="hero-logo">
+        <h1>DIREX ESCAPE</h1>
+        <div class="author">By Commander Dishu</div>
+        <p class="tagline">Directional arrow puzzle adventure! Clear the grid, solve paths, and escape.</p>
+
+        <div class="specs">
+            <div class="spec-item">
+                <span>Format</span>
+                <strong>APK</strong>
+            </div>
+            <div class="spec-item">
+                <span>Version</span>
+                <strong>v1.0</strong>
+            </div>
+            <div class="spec-item">
+                <span>OS</span>
+                <strong>Android 7.0+</strong>
+            </div>
+        </div>
+
+        <a href="https://github.com/dishuartist/Direx-Escape-/releases/download/v1.0/Direx_Escape.apk" class="btn-main" download>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Download Direx Escape APK
+        </a>
+
+        <div class="safe-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            Verified Release &bull; Safe Direct Download
+        </div>
+    </div>
+
+    <!-- Screenshots Preview -->
+    <div class="section-title">Gameplay Preview</div>
+    <div class="gallery">
+        <div class="phone-frame">
+            <img src="Screenshot_20261004_124806_Direx%20Escape.jpg" alt="Menu Screen">
+        </div>
+        <div class="phone-frame">
+            <img src="Screenshot_20261004_124820_Direx%20Escape.jpg" alt="Puzzle Gameplay">
+        </div>
+    </div>
+
+    <!-- Feature Cards -->
+    <div class="features">
+        <div class="feature-card">
+            <h3>🧩 Smart Puzzles</h3>
+            <p>Engaging arrow-matching levels that challenge your spatial awareness.</p>
+        </div>
+        <div class="feature-card">
+            <h3>⚡ Fast & Lightweight</h3>
+            <p>Smooth 60 FPS performance optimized for all Android devices.</p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 Direx Escape &bull; Dishu Artist
+    </footer>
+
+</body>
+</html>
